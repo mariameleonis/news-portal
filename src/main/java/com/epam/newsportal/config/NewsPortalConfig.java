@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -27,6 +28,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @ComponentScan("com.epam.newsportal")
 @EnableWebMvc
 @EnableTransactionManagement
+@EnableAspectJAutoProxy
 public class NewsPortalConfig implements WebMvcConfigurer {
 	@Autowired
 	private Environment env;

@@ -10,16 +10,16 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.epam.newsportal.dao.NewsDAOImpl;
+import com.epam.newsportal.dao.NewsDAO;
 import com.epam.newsportal.dto.NewsDTO;
 import com.epam.newsportal.entity.News;
 
 @Service
 public class NewsServiceImpl implements NewsService {
 	
-	private final NewsDAOImpl newsDAO;
+	private final NewsDAO newsDAO;
 	
-	public NewsServiceImpl(NewsDAOImpl newsDAO) {
+	public NewsServiceImpl(NewsDAO newsDAO) {
 		this.newsDAO = newsDAO;
 	}
 

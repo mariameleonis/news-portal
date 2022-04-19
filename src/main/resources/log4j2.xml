@@ -20,7 +20,7 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="com.epam.newsportal.rest.NewsRestController" level="debug">
+        <Logger name="com.epam.newsportal.aspect.ApplicationLoggingAspect" level="debug">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="error">
