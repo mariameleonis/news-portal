@@ -2,7 +2,6 @@ package com.epam.newsportal.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-
 import java.lang.annotation.*;
 
 @Documented

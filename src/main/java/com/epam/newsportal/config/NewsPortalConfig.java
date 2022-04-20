@@ -1,9 +1,7 @@
 package com.epam.newsportal.config;
 
 import java.beans.PropertyVetoException;
-
 import javax.sql.DataSource;
-
 import java.util.Properties;
 import org.hibernate.SessionFactory;
 import org.springframework.core.env.Environment;
@@ -16,12 +14,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
-
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-
 
 @Configuration
 @PropertySource("classpath:persistence-oracle.properties")
@@ -30,6 +25,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableTransactionManagement
 @EnableAspectJAutoProxy
 public class NewsPortalConfig implements WebMvcConfigurer {
+	
 	@Autowired
 	private Environment env;
 	  
@@ -48,7 +44,6 @@ public class NewsPortalConfig implements WebMvcConfigurer {
 		myDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
 		myDataSource.setUser(env.getProperty("jdbc.user"));
 		myDataSource.setPassword(env.getProperty("jdbc.password"));
-		
 		myDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
 		myDataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
 		myDataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));		
@@ -59,8 +54,7 @@ public class NewsPortalConfig implements WebMvcConfigurer {
 	
 	private int getIntProperty(String propName) {
 		
-		String propVal = env.getProperty(propName);
-		
+		String propVal = env.getProperty(propName);	
 		int intPropVal = Integer.parseInt(propVal);
 		
 		return intPropVal;
@@ -93,6 +87,7 @@ public class NewsPortalConfig implements WebMvcConfigurer {
 	@Bean
 	@Autowired
 	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+		
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
 		txManager.setSessionFactory(sessionFactory);
 

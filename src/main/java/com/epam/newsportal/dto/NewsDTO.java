@@ -1,10 +1,8 @@
 package com.epam.newsportal.dto;
 
 import java.util.Objects;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
 import com.epam.newsportal.validator.ValidDate;
 
 public class NewsDTO {

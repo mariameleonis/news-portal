@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.epam.newsportal.dao.NewsDAO;
 import com.epam.newsportal.dto.NewsDTO;
 import com.epam.newsportal.entity.News;
@@ -74,6 +72,7 @@ public class NewsServiceImpl implements NewsService {
         newsDTO.setBrief(news.getBrief());
         newsDTO.setContent(news.getContent());
         newsDTO.setDate(news.getDate().toString());
+        
         return newsDTO;
 	}
 
@@ -85,6 +84,7 @@ public class NewsServiceImpl implements NewsService {
         news.setContent(newsDTO.getContent());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd");
         news.setDate(LocalDate.parse(newsDTO.getDate(), formatter));
+        
         return news;
 	}
 }

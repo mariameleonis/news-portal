@@ -2,7 +2,6 @@ package com.epam.newsportal.entity;
 
 import java.time.LocalDate;
 import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -107,7 +106,6 @@ public class News {
                 ", content='" + content + '\'' +
                 ", date=" + date +
                 '}';
-    }
-	
+    }	
 }
 
