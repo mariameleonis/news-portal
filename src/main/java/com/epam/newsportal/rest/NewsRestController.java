@@ -1,5 +1,6 @@
 package com.epam.newsportal.rest;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.Valid;
@@ -25,6 +26,11 @@ public class NewsRestController {
 	
 	@Autowired
 	private NewsService newsService;
+	
+	@RequestMapping("/user")
+	public Principal user(Principal user) {
+	    return user;
+	}
 	
 	@GetMapping("/news")
 	public ResponseEntity<List<NewsDTO>> getNews() {
