@@ -1,0 +1,20 @@
+<div class="container">
+<div class="row">
+  <h1 class="mb-3"><a routerLink="/news">News Portal </a></h1>
+
+  <div class="col-md-2">
+    <div>
+    <button *ngIf="!authenticated()" routerLink="/login" routerLinkActive="active" type="button" class="btn btn-link">Login</button>
+  </div>
+  <div>
+    <button *ngIf="authenticated()" (click)="logout()" type="button" class="btn btn-link">Logout</button>
+  </div>
+  <div>
+    <button *ngIf="authenticated()" routerLink="/add-news" type="button" class="btn btn-outline-primary btn-sm">Add News</button>
+  </div>
+  </div>
+  
+  <div class="col-md-10">
+    <router-outlet></router-outlet> </div>
+  </div>
+  </div>

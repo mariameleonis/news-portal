@@ -1,0 +1,37 @@
+<div *ngFor="let tempNews of news">
+<div class="mb-5">
+    <h2>
+        <a routerLink="/news/{{ tempNews.id }}">
+            {{ tempNews.title }}
+        </a>
+    </h2>
+
+    <div class="fw-lighter">{{ tempNews.date }}</div>
+
+    <div>
+       <p>{{ tempNews.brief }}</p> 
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+    <button class="btn btn-outline-primary btn-sm" routerLink="/news/{{ tempNews.id }}">
+        View
+    </button>
+
+    <button *ngIf="authenticated()" class="btn btn-outline-primary btn-sm" routerLink="/edit-news/{{ tempNews.id }}">
+        Edit
+    </button>  
+</div></div>
+<div class="form-check col-sm-4 mt-3" *ngIf="authenticated()">
+    <input class="form-check-input" type="checkbox" [(ngModel)]="SelectionStatusOfNews[tempNews.id]" value="{{ tempNews.id }}" id="deletedNews_{{ tempNews.id }}">
+        <label class="form-check-label" for="deletedNews_{{ tempNews.id }}">
+           Mark for deletion
+        </label>
+    </div>
+</div>
+
+</div>
+</div>
+<div class="mt-5">
+<button *ngIf="authenticated()" type="button" (click)="deleteList()" class="btn btn-outline-danger">Delete</button>
+</div>

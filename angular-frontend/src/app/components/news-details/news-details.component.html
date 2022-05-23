@@ -1,0 +1,20 @@
+<div>
+    <div class="container-fluid">
+        <h3>{{ news.title }}</h3>
+        <p class="fw-light">{{ news.date }}</p>
+        <p>{{ news.content }}</p>
+       
+        <div *ngIf="authenticated()" class="btn-group" role="group" aria-label="Basic outlined example">
+        <button class="btn btn-outline-primary btn-sm" routerLink="/edit-news/{{ news.id }}">
+            Edit
+        </button>
+        <button class="btn btn-outline-primary btn-sm" (click)="delete()">
+            Delete
+        </button>
+        </div>
+        <div class="mt-5">
+            <a routerLink="/news">Back to News List</a>
+        </div>
+    </div>
+</div>
+
